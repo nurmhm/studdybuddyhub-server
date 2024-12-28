@@ -7,7 +7,7 @@ const app = express()
 
 const corsOptions = {
   origin: [
-    'http://localhost:5173',
+    'https://studybuddyhub-client.vercel.app',
     'http://localhost:5174',
 
   ],
