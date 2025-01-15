@@ -39,15 +39,22 @@ async function run() {
 
     const assginmentCollection = client.db("studybuddy").collection("allassignment");
     const submitCollection = client.db('studybuddy').collection("submitCollection");
+    const userCollection = client.db('studybuddy').collection("userCollection");
+
+    //post all user in database
+    app.post('/user', async (req, res) => {
+      const user = req.body;
+      console.log(user,"user");
+      // const result = await userCollection.insertOne(user)
+      // res.send(result)
+    })
 
     // post all assingments in database
     app.post('/assignments', async (req, res) => {
       const assignment = req.body;
       const result = await assginmentCollection.insertOne(assignment);
-
       res.send(assignment)
     })
-
     // get all assingments in database
     app.get('/assignments', async (req, res) => {
       const cursor = await assginmentCollection.find({}).toArray()
